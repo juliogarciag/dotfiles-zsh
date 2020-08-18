@@ -1,5 +1,12 @@
 # Instructions
 
+## Pre-requisites:
+
+- Highlight: `brew install highlight`.
+- Chruby: `brew install chruby ruby-install`.
+
+## Install
+
 1. Install oh-my-zsh.
 2. Install the following plugins not included in oh-my-zsh:
 
@@ -9,7 +16,7 @@
 3. Ensure you have this in your `.zshrc` file:
 
    ```zsh
-    export ZSH="/Users/julio/.oh-my-zsh"
+    export ZSH="$HOME/.oh-my-zsh"
 
     ZSH_THEME="mine"
 
