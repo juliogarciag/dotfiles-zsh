@@ -42,8 +42,8 @@ function finder() {
 }
 
 function configme() {
-  git config --global user.email $GIT_EMAIL
-  git config --global user.name $GIT_NAME
+  git config --global user.email "julio.garcia@hey.com"
+  git config --global user.name "juliogarciag"
   git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 }
 
@@ -56,4 +56,8 @@ function gacp() {
   local branch=`git branch | grep '*' | awk '{print $2}'`
   gac $argv[1]
   git push -u origin $branch
+}
+
+function short_pwd {
+  echo $PWD | sed "s:${HOME}:~:" | sed "s:/\(.\)[^/]*:/\1:g" | sed "s:/[^/]*$:/$(basename $PWD):"
 }

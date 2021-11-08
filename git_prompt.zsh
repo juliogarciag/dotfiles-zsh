@@ -7,9 +7,20 @@ function git_prompt() {
     modified blue
     renamed magenta
     copied magenta
-    deleted red
+    deleted yellow
     untracked yellow
     unmerged red
+  )
+
+  declare -A STATUS_TEXTS
+  local STATUS_TEXTS=(
+    added a
+    modified M
+    renamed r
+    copied c
+    deleted d
+    untracked u
+    unmerged "!"
   )
 
   local BRANCH=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
@@ -77,16 +88,12 @@ function git_prompt() {
     esac
   done <<< "$INDEX"
 
-  if [[ $STAGED = 1 ]]; then
-    echo -n "%{$fg[yellow]%} $BRANCH"
-  else
-    echo -n "%{$fg[red]%} $BRANCH"
-  fi
+  echo -n "%{$fg[blue]%} $BRANCH"
 
   for i in $GIT_STATUS_ORDER; do
     if test "${GS#*$i}" != "$GS"; then
       local COLOR="$STATUS_COLORS[$i]"
-      echo -n "$fg[$COLOR] [$i]"
+      echo -n "$fg[$COLOR] [$STATUS_TEXTS[$i]]"
     fi
   done
 
