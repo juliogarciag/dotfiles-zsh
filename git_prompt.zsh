@@ -4,7 +4,7 @@ function git_prompt() {
   declare -A STATUS_COLORS
   local STATUS_COLORS=(
     added green
-    modified blue
+    modified cyan
     renamed magenta
     copied magenta
     deleted yellow
@@ -29,12 +29,12 @@ function git_prompt() {
     return
   fi
 
-  printf '|'
+  echo -n "%F{yellow}|%f"
 
   local INDEX=`git status --porcelain 2> /dev/null | cut -c 1-2 | sort -u`
 
   if [[ $INDEX = '' ]] then
-    echo " %{$fg[green]%}$BRANCH %{$reset_color%}"
+    echo " %F{green}$BRANCH%f"
     return
   fi
 
@@ -88,14 +88,12 @@ function git_prompt() {
     esac
   done <<< "$INDEX"
 
-  echo -n "%{$fg[blue]%} $BRANCH"
+  echo -n "%F{magenta} $BRANCH%f"
 
   for i in $GIT_STATUS_ORDER; do
     if test "${GS#*$i}" != "$GS"; then
       local COLOR="$STATUS_COLORS[$i]"
-      echo -n "$fg[$COLOR] [$STATUS_TEXTS[$i]]"
+      echo -n "%F{$COLOR} [$STATUS_TEXTS[$i]]%f"
     fi
   done
-
-  echo -n " "
 }
