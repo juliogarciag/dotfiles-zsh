@@ -96,4 +96,6 @@ function git_prompt() {
       echo -n "%F{$COLOR} [$STATUS_TEXTS[$i]]%f"
     fi
   done
+
+  echo -n " "
 }

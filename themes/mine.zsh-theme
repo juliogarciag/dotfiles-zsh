@@ -1,1 +1,1 @@
-PROMPT='$(short_pwd) $(git_prompt) %F{yellow}$%f '
+PROMPT='$(short_pwd) $(git_prompt)%F{yellow}$%f '
