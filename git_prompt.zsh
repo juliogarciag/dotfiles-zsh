@@ -93,9 +93,7 @@ function git_prompt() {
   for i in $GIT_STATUS_ORDER; do
     if test "${GS#*$i}" != "$GS"; then
       local COLOR="$STATUS_COLORS[$i]"
-      echo -n "%F{$COLOR} [$STATUS_TEXTS[$i]]%f"
+      echo -n "%F{$COLOR} [$STATUS_TEXTS[$i]]%f "
     fi
   done
-
-  echo -n " "
 }
