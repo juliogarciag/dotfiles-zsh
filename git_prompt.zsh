@@ -97,5 +97,5 @@ function git_prompt() {
     fi
   done
 
-  echo -n " "
+  echo -n "?"
 }
