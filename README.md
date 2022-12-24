@@ -1,6 +1,6 @@
 # Instructions
 
-TODO: I need to re-do this README because these instructions are out of date.
+**TODO:** I need to re-do this README because these instructions are out of date.
 
 ## Pre-requisites:
 
