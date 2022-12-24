@@ -34,8 +34,7 @@ function git_prompt() {
   local INDEX=`git status --porcelain 2> /dev/null | cut -c 1-2 | sort -u`
 
   if [[ $INDEX = '' ]] then
-    echo " %F{green}$BRANCH%f"
-    echo -n " "
+    echo " %F{green}$BRANCH%f "
     return
   fi
 
