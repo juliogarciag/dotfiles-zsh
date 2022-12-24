@@ -35,6 +35,7 @@ function git_prompt() {
 
   if [[ $INDEX = '' ]] then
     echo " %F{green}$BRANCH%f"
+    echo -n " "
     return
   fi
 
@@ -97,5 +98,5 @@ function git_prompt() {
     fi
   done
 
-  echo -n "?"
+  echo -n " "
 }
